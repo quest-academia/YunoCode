@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('/', 'frontTopPageController@index')->name('/');
+Route::get('/', 'TopPageController@index')->name('/');
