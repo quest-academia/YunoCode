@@ -1,0 +1,19 @@
+.bgcolor-blue{
+    background-color:#001A43;
+}
+
+.white-text{
+    color:white;
+}
+
+.blue-text {
+   color:#001A43;
+}
+
+.image-container{
+    height:200px;
+}
+
+.float-right{
+    float:right;
+}
