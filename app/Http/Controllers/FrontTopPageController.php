@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
-class TopPageController extends Controller
+class FrontTopPageController extends Controller
 {
     protected function index()
     {
