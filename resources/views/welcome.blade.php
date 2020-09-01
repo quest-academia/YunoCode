@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="text-center mb-4">
-                   <img src="./image/pc.png" width="150" height="150" alt="">
+                   <img src="./image/image_pc.png" width="150" height="150" alt="">
                 </div>
 
             </div>
@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="text-center mb-4">
-                   <img src="./image/chat.png" width="150" height="150" alt="">
+                   <img src="./image/image_chat.png" width="150" height="150" alt="">
                 </div>
 
             </div>
@@ -52,11 +52,11 @@
             <div class="card m-2">
 
                 <div class="text-center text-title mt-4 mb-3">
-                    <h3 class="blue-text">１対１でサポート</br></h3>
+                    <h3 class="blue-text">1対１でサポート</br></h3>
                 </div>
 
                 <div class="text-center mb-4">
-                   <img src="./image/teacher.png" width="150" height="150" alt="">
+                   <img src="./image/image_teacher.png" width="150" height="150" alt="">
                 </div>
 
             </div>

@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', 'FrontTopPageController@index')->name('/');
+    Route::get('/', 'FrontTopPageController@index')->name('/');
 
-    Route::resource('products', 'FrontCreateProductsController', ['only' => ['create', 'store']]);
+    Route::resource('products', 'FrontProductsController', ['only' => ['create', 'store']]);
