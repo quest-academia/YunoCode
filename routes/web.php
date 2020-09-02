@@ -10,5 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+    //トップページを表示する
+    Route::get('/', 'FrontTopPageController@index')->name('/');
 
-Route::get('/', 'frontTopPageController@index')->name('/');
+    //商品関連のページを表示する
+    Route::resource('products', 'FrontProductsController', ['only' => ['create', 'store']]);
