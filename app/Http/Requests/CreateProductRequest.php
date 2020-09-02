@@ -23,6 +23,7 @@ class CreateProductRequest extends FormRequest
      */
     public function rules()
     {
+        //バリデーション
         return [
             'title' => 'required|max:32',
             'promotion' => 'required|max:128',
@@ -40,6 +41,7 @@ class CreateProductRequest extends FormRequest
 
     public function messages()
     {
+        //カスタムバリデーションの表示
         return [
             'price.digits_between' => '値段は32桁以内で入力してください',
             'category_id.require' => '選択必須項目です。',

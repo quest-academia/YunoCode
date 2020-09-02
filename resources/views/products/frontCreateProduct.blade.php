@@ -76,10 +76,12 @@
                     <div class="form-group @if(!empty($errors->first('price'))) has-error @endif col-md-6">
                         <div class="inline-block">
                             {!! Form::text('price',null,['class'=>'form-control']) !!}
-                            <span class="text-danger help-block">{{$errors->first('price')}}</span>
                         </div>
                         <div class="inline-block">
                             <p>円</p>
+                        </div>
+                        <div>
+                            <span class="text-danger help-block">{{$errors->first('price')}}</span>
                         </div>
                     </div>
 
@@ -93,7 +95,11 @@
                     <select type="text" class="" name="category_id">
                         <option hidden>選択してください</option>
                         @foreach($categories as $key=>$category)
-                            <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                            @if((!empty($request->category_id) && $request->category_id == $category->id) || old('category_id') == $category->id )
+                                <option value="{{ $category->id }}" selected>{{ $category->category_name }}</option>
+                            @else
+                                <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                            @endif
                         @endforeach
                     </select></br>
                     <span class="text-danger help-block">{{$errors->first('category_id')}}</span>
@@ -104,7 +110,11 @@
                     <select type="text" class="form-group @if(!empty($errors->first('status_id'))) has-error @endif" name="status_id">
                         <option hidden>選択してください</option>
                         @foreach($statuses as $key=>$status)
-                            <option value="{{ $status->id }}">{{ $status->status_name }}</option>
+                            @if((!empty($request->status_id) && $request->status_id == $status->id) || old('status_id') == $status->id )
+                                <option value="{{ $status->id }}") selected >{{ $status->status_name }}</option>
+                            @else
+                                <option value="{{ $status->id }}")>{{ $status->status_name }}</option>
+                            @endif
                         @endforeach
                     </select></br>
                     <span class="text-danger help-block">{{$errors->first('status_id')}}</span>

@@ -12,6 +12,7 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
 
+        //商品カテゴリー名
         DB::table('categories')->insert([
             'category_name' => 'php',
         ]);

@@ -12,6 +12,7 @@ class FrontProductsController extends Controller
 {
     public function create()
     {
+        //プルダウン用のデータ取得
         $categories = Category::orderBy('id')->get();
         $statuses = Status::orderBy('id')->get();
 
@@ -32,29 +33,33 @@ class FrontProductsController extends Controller
         $product->promotion = $request->promotion;
         $product->overview = $request->overview;
 
+        // メイン画像を指定のパスに保存する
         $mainImageName = time().'.'.$request->main_image->getClientOriginalExtension();
-        $target_path = public_path('/productImage/');
-        $request->main_image->move($target_path,$mainImageName);
+        $targetPath = public_path('/productImage/');
+        $request->main_image->move($targetPath,$mainImageName);
         $product->main_image = $mainImageName;
 
+        // サブ画像１が存在すれば、サブ画像１を指定のパスに保存する
         if($request->sub_image1){
-            $subImage1Name = time().'.'.$sub_image1->getClientOriginalExtension();
-            $target_path = public_path('/image/');
-            $sub_image1->move($target_path,$subImage1Name);
+            $subImage1Name = time().'.'.$request->sub_image1->getClientOriginalExtension();
+            $targetPath = public_path('/image/');
+            $request->sub_image1->move($targetPath,$subImage1Name);
             $product->sub_image1 = $subImage1Name;
         }
 
+        // サブ画像２が存在すれば、サブ画像２を指定のパスに保存する
         if($request->sub_image2){
-            $subImage2Name = time().'.'.$sub_image2-getClientOriginalExtension();
-            $target_path = public_path('/image/');
-            $sub_image2->move($target_path,$subImage2Name);
+            $subImage2Name = time().'.'.$request->sub_image2->getClientOriginalExtension();
+            $targetPath = public_path('/image/');
+            $request->sub_image2->move($targetPath,$subImage2Name);
             $product->sub_image2 = $subImage2Name;
         }
 
+        // サブ画像３が存在すれば、サブ画像３を指定のパスに保存する
         if($request->sub_image3){
-            $subImage3Name = time().'.'.$sub_image1->getClientOriginalExtension();
-            $target_path = public_path('/image/');
-            $sub_image3->move($target_path,$subImage3Name);
+            $subImage3Name = time().'.'.$request->sub_image3->getClientOriginalExtension();
+            $targetPath = public_path('/image/');
+            $request->sub_image3->move($targetPath,$subImage3Name);
             $product->sub_image3 = $subImage3Name;
         }
 
