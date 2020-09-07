@@ -15,6 +15,7 @@ class FrontProductsController extends Controller
         //全データ取得
         $categories = Category::orderBy('id')->get();
         $statuses = Status::orderBy('id')->get();
+        //10件ごとに表示する
         $products = Product::orderBy('id','desc')->paginate(10);
 
         $data=[

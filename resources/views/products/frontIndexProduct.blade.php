@@ -88,7 +88,7 @@
         @endforeach
         
         <div class="d-flex justify-content-center m-2">
-            {{ $products->links() }}
+        {{ $products->appends(request()->input())->links() }}
         </div>
 
 
