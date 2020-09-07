@@ -23,19 +23,19 @@
                 <div class="row mt-4">
 
                     @if($product->sub_image1)
-                        <div class="text-right col-md-4">
+                        <div class="text-center col-md-4 mt-2">
                             <img src="/productImage/{{ $product->sub_image1 }}" width="150" height="150">
                         </div>
                     @endif
 
                     @if($product->sub_image2)
-                        <div class="text-center col-md-4">
+                        <div class="text-center col-md-4 mt-2">
                             <img src="/productImage/{{ $product->sub_image2 }}" width="150" height="150">
                         </div>
                     @endif
 
                     @if($product->sub_image3)
-                        <div class="text-left col-md-4">
+                        <div class="text-center col-md-4 mt-2">
                             <img src="/productImage/{{ $product->sub_image3}}" width="150" height="150">
                         </div>
                     @endif
