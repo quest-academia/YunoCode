@@ -51,12 +51,12 @@
 
         @foreach($products as $key => $product)
 
-        <div class="mt-4 mx-5 border border-dark rounded">
+        <div class="mt-4 border border-dark rounded">
 
             <div class="row m-1">
 
                 <div class="mt-4 col-md-3 text-center">
-                    <img src="/productImage/{{ $product->main_image }}" width="180" height="180">
+                    <img src="/productImage/{{ $product->main_image }}" width="150" height="150">
                 </div>
 
                 <div class="col-md-9">
