@@ -10,6 +10,38 @@ use App\Http\Requests\CreateProductRequest;
 
 class FrontProductsController extends Controller
 {
+    public function index()
+    {
+        //全データ取得
+        $categories = Category::orderBy('id')->get();
+        $statuses = Status::orderBy('id')->get();
+        $products = Product::orderBy('id','desc')->paginate(10);
+
+        $data=[
+            'categories' => $categories,
+            'statuses' => $statuses,
+            'products' => $products,
+        ];
+
+        return view('products.frontIndexProduct',$data);
+    }
+
+    public function show($id)
+    {
+        //全データ取得
+        $categories = Category::orderBy('id')->get();
+        $statuses = Status::orderBy('id')->get();
+        $product = Product::find($id);
+
+        $data=[
+            'categories' => $categories,
+            'statuses' => $statuses,
+            'product' => $product,
+        ];
+
+        return view('products.frontShowProduct',$data);
+    }
+
     public function create()
     {
         //プルダウン用のデータ取得
