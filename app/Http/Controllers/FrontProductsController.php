@@ -32,6 +32,7 @@ class FrontProductsController extends Controller
         //全データ取得
         $categories = Category::orderBy('id')->get();
         $statuses = Status::orderBy('id')->get();
+        //商品指定して取得
         $product = Product::find($id);
 
         $data=[
