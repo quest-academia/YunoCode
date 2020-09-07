@@ -204,7 +204,7 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->insert([
             'title' => 'LaravelQuest4',
             'promotion' => 'PHPの基本文法を学んだけどその後何していいかわからない！そんなあなたにこの講座をお勧めします！実際に手を動かしながらLaravelの使い方を学べます。実際のポートフォリオをもとに講座が作成されているので、未経験から転職を目指している方にもおすすめです！',
-            'overview' => 'あんぱんまん。',
+            'overview' => 'Laravel',
             'main_image' => '1599474707.JPG',
             'sub_image1' => '1599474707.JPG',
             'sub_image2' => '1599474707.JPG',
@@ -217,7 +217,7 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->insert([
             'title' => 'LaravelQuest4',
             'promotion' => 'PHPの基本文法を学んだけどその後何していいかわからない！そんなあなたにこの講座をお勧めします！実際に手を動かしながらLaravelの使い方を学べます。実際のポートフォリオをもとに講座が作成されているので、未経験から転職を目指している方にもおすすめです！',
-            'overview' => 'カレーパンマン',
+            'overview' => 'CakePHP',
             'main_image' => '1599474707.JPG',
             'sub_image1' => '1599474707.JPG',
             'sub_image2' => '1599474707.JPG',
@@ -230,7 +230,7 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->insert([
             'title' => 'LaravelQuest4',
             'promotion' => 'PHPの基本文法を学んだけどその後何していいかわからない！そんなあなたにこの講座をお勧めします！実際に手を動かしながらLaravelの使い方を学べます。実際のポートフォリオをもとに講座が作成されているので、未経験から転職を目指している方にもおすすめです！',
-            'overview' => 'ショクパンマン',
+            'overview' => 'Symphony',
             'main_image' => '1599474707.JPG',
             'sub_image1' => '1599474707.JPG',
             'sub_image2' => '1599474707.JPG',
@@ -243,7 +243,7 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->insert([
             'title' => 'LaravelQuest4',
             'promotion' => 'PHPの基本文法を学んだけどその後何していいかわからない！そんなあなたにこの講座をお勧めします！実際に手を動かしながらLaravelの使い方を学べます。実際のポートフォリオをもとに講座が作成されているので、未経験から転職を目指している方にもおすすめです！',
-            'overview' => 'アンパンマンとカレーパンマン',
+            'overview' => 'LaravelとCakePHP',
             'main_image' => '1599474707.JPG',
             'sub_image1' => '1599474707.JPG',
             'sub_image2' => '1599474707.JPG',
@@ -256,7 +256,7 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->insert([
             'title' => 'LaravelQuest4',
             'promotion' => 'PHPの基本文法を学んだけどその後何していいかわからない！そんなあなたにこの講座をお勧めします！実際に手を動かしながらLaravelの使い方を学べます。実際のポートフォリオをもとに講座が作成されているので、未経験から転職を目指している方にもおすすめです！',
-            'overview' => 'カレーパンマンとショクパンマン',
+            'overview' => 'CakePHPとSymphony',
             'main_image' => '1599474707.JPG',
             'sub_image1' => '1599474707.JPG',
             'sub_image2' => '1599474707.JPG',
@@ -269,7 +269,7 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->insert([
             'title' => 'LaravelQuest4',
             'promotion' => 'PHPの基本文法を学んだけどその後何していいかわからない！そんなあなたにこの講座をお勧めします！実際に手を動かしながらLaravelの使い方を学べます。実際のポートフォリオをもとに講座が作成されているので、未経験から転職を目指している方にもおすすめです！',
-            'overview' => 'アンパンマンとショクパンマン',
+            'overview' => 'LaravelとSymphony',
             'main_image' => '1599474707.JPG',
             'sub_image1' => '1599474707.JPG',
             'sub_image2' => '1599474707.JPG',
@@ -279,17 +279,5 @@ class ProductsTableSeeder extends Seeder
             'status_id' => 1,
         ]);
 
-        DB::table('products')->insert([
-            'title' => 'LaravelQuest4',
-            'promotion' => 'PHPの基本文法を学んだけどその後何していいかわからない！そんなあなたにこの講座をお勧めします！実際に手を動かしながらLaravelの使い方を学べます。実際のポートフォリオをもとに講座が作成されているので、未経験から転職を目指している方にもおすすめです！',
-            'overview' => 'この講座はPHPのフレームワークであるLaravelを学べる講座です。ProgateやドットインストールでPHPを勉強した後にこの講座を受講することをお勧めします。実際に未経験から転職を成功させた方のポートフォリオを参考に、YouTubeのまとめサイトを作っていきます。実際に手を動かしながら、Webアプリケーションの基本である「CRUD」の処理やログイン機能、1対多、多対多の関係について学んでいきます。エラーで躓いてしまったり、わからないところがあればいつでも質問可能です。',
-            'main_image' => '1599474707.JPG',
-            'sub_image1' => '1599474707.JPG',
-            'sub_image2' => '1599474707.JPG',
-            'sub_image3' => '1599474707.JPG',
-            'price' => 5000,
-            'category_id' => 1,
-            'status_id' => 1,
-        ]);
     }
 }
