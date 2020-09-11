@@ -79,6 +79,10 @@ class FrontProductsController extends Controller
         //商品指定して取得
         $product = Product::find($id);
 
+        if (is_null($product)) {
+            abort(404);
+        }
+
         $data=[
             'categories' => $categories,
             'statuses' => $statuses,
