@@ -1,18 +1,12 @@
 <header class="">
 
-    
-
     <nav class="navbar navbar-expand-lg navbar-dark bgcolor-blue">
-
         
         <a class="navbar-brand white-text" href="/">YunoCode</a>
 
         <button type="button" class="navbar-toggler white-text" data-toggle="collapse" data-target="#nav-bar">
             <span class="navbar-toggler-icon" ></span>
-        </button>
-
-        
-        
+        </button>       
 
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>

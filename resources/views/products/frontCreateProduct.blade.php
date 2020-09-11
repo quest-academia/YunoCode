@@ -2,7 +2,7 @@
 
 @section('content')
 
-    </div>
+    <div>
 
         <h1 class="text-center blue-text mt-5">商品登録画面</h1>
 
@@ -125,6 +125,5 @@
         {!! Form::close() !!}
 
     </div>
-
 
 @endsection

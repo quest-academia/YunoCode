@@ -22,21 +22,29 @@
 
                 <div class="row mt-4">
 
-                    @if($product->sub_image1)
+                    @if($product->sub_image1 && $product->sub_image2 && $product->sub_image3)
                         <div class="text-center col-md-4 mt-2">
                             <img src="/productImage/{{ $product->sub_image1 }}" width="150" height="150">
                         </div>
-                    @endif
 
-                    @if($product->sub_image2)
                         <div class="text-center col-md-4 mt-2">
                             <img src="/productImage/{{ $product->sub_image2 }}" width="150" height="150">
                         </div>
-                    @endif
 
-                    @if($product->sub_image3)
                         <div class="text-center col-md-4 mt-2">
                             <img src="/productImage/{{ $product->sub_image3}}" width="150" height="150">
+                        </div>
+                    @elseif($product->sub_image1 && $product->sub_image2)
+                        <div class="text-center col-md-4 offset-md-2 mt-2">
+                            <img src="/productImage/{{ $product->sub_image1 }}" width="150" height="150">
+                        </div>
+
+                        <div class="text-center col-md-4 mt-2">
+                            <img src="/productImage/{{ $product->sub_image2 }}" width="150" height="150">
+                        </div>
+                    @elseif($product->sub_image1)
+                        <div class="text-center col-md-12 mt-2">
+                            <img src="/productImage/{{ $product->sub_image1 }}" width="150" height="150">
                         </div>
                     @endif
 

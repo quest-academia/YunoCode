@@ -2,18 +2,18 @@
 
 @section('content')
 
-        <div class="row">
-        <div class="col-md-4 offset-md-8">
-
+    <div class="row">
+        <div class="col-md-3 mt-5 ">
+    
             {!! Form::open(['route'=>'search', 'method' => 'get']) !!}
 
                 <div class="form-group mt-1">
                     <div class="form-group">
-                        <h6 class="inline-block">・キーワード検索</h6>
+                        <h6 class="inline-block">キーワード検索</h6>
                         {!! Form::text('overview',null,['class'=>'form-control input-sm']) !!}
                     </div>
 
-                        <p class="inline-block">・商品カテゴリー</p>
+                        <p class="inline-block">商品カテゴリー</p>
                         <select type="text" class="" name="category_id">
                             <option hidden>指定なし</option>
                             @foreach($categories as $key=>$category)
@@ -23,9 +23,9 @@
                                     <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                                 @endif
                             @endforeach
-                        </select>
+                        </select></br>
                     
-                        <p class="inline-block">・受講生受付状態</p>
+                        <p class="inline-block mt-2">受講生受付状態</p>
                         <select type="text" class="form-group @if(!empty($errors->first('status_id'))) has-error @endif" name="status_id">
                             <option hidden>指定なし</option>
                             @foreach($statuses as $key=>$status)
@@ -38,14 +38,14 @@
                         </select>
 
                     <div class="text-center">
-                        {!! Form::submit('検索',['class'=> 'text-center btn btn-primary w-25']) !!}
+                        {!! Form::submit('検索',['class'=> 'text-center btn btn-primary']) !!}
                     </div>
 
                 </div>
             {!! Form::close() !!}
+        </div>
 
-        </div>
-        </div>
+        <dic class="col-md-9 mt-4">
 
         <h1 class="text-center blue-text">商品一覧画面</h1>
 
@@ -55,11 +55,11 @@
 
             <div class="row m-1">
 
-                <div class="mt-4 col-md-3 text-center">
+                <div class="mt-4 col-lg-3 text-center">
                     <img src="/productImage/{{ $product->main_image }}" width="150" height="150">
                 </div>
 
-                <div class="col-md-9">
+                <div class="col-lg-9">
 
                     @foreach($statuses as $key => $status)
                         @if($status->id == $product->status_id)
@@ -87,9 +87,14 @@
 
         @endforeach
         
-        <div class="d-flex justify-content-center m-2">
-        {{ $products->appends(request()->input())->links() }}
+        <div class="d-flex justify-content-center m-4">
+
+            {{ $products->appends(request()->input())->links() }}
+            
         </div>
+
+        </div>
+    </div>
 
 
 

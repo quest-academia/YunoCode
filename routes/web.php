@@ -15,5 +15,4 @@
 
     //商品関連のページを表示する
     Route::resource('products', 'FrontProductsController', ['only' => ['index', 'show', 'create', 'store']]);
-
-    Route::get('Search','SearchController@index')->name('search');
+    Route::get('Search','FrontProductsController@search')->name('search');
