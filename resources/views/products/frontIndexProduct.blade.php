@@ -5,12 +5,12 @@
     <div class="row">
         <div class="col-md-3 mt-5 ">
     
-            {!! Form::open(['route'=>'search', 'method' => 'get']) !!}
+            {!! Form::open(['route'=>'search', 'method' => 'post']) !!}
 
                 <div class="form-group mt-1">
                     <div class="form-group">
                         <h6 class="inline-block">キーワード検索</h6>
-                        {!! Form::text('overview',null,['class'=>'form-control input-sm']) !!}
+                        {!! Form::text('overview',$request->overview,['class'=>'form-control input-sm']) !!}
                     </div>
 
                         <p class="inline-block">商品カテゴリー</p>

@@ -66,6 +66,7 @@ class FrontProductsController extends Controller
             'categories' => $categories,
             'statuses' => $statuses,
             'products' => $products,
+            'request' => $request,
         ];
 
         return view('products.frontIndexProduct',$data);
