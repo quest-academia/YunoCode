@@ -10,7 +10,7 @@ use App\Http\Requests\CreateProductRequest;
 
 class FrontProductsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         //全データ取得
         $categories = Category::orderBy('id')->get();
@@ -22,10 +22,12 @@ class FrontProductsController extends Controller
             'categories' => $categories,
             'statuses' => $statuses,
             'products' => $products,
+            'request' => $request,
         ];
 
         return view('products.frontIndexProduct',$data);
     }
+
 
     public function search(Request $request){
         $query = Product::query();
