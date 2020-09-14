@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="center">
+    <div class="center mt-5">
 
         <div class="text-center mb-5">
 

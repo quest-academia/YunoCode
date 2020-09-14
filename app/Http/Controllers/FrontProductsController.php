@@ -10,6 +10,91 @@ use App\Http\Requests\CreateProductRequest;
 
 class FrontProductsController extends Controller
 {
+    public function index(Request $request)
+    {
+        //全データ取得
+        $categories = Category::orderBy('id')->get();
+        $statuses = Status::orderBy('id')->get();
+        //10件ごとに表示する
+        $products = Product::orderBy('id','desc')->paginate(10);
+
+        $data=[
+            'categories' => $categories,
+            'statuses' => $statuses,
+            'products' => $products,
+            'request' => $request,
+        ];
+
+        return view('products.frontIndexProduct',$data);
+    }
+
+
+    public function search(Request $request){
+        $query = Product::query();
+
+        //$request->input()で検索時に入力した項目を取得
+        $categorySearchId = $request->input('category_id');
+        $statusSearchId = $request->input('status_id');
+        $overviewSearchWord = $request->input('overview');
+
+        //キーワードをスペースで区切って配列に入れなおす
+        $overviewKeywords = preg_split('/[\p{Z}\p{Cc}]++/u', $overviewSearchWord, -1, PREG_SPLIT_NO_EMPTY);
+
+        // プルダウンメニューで指定なし以外を選択した場合、$query->whereで選択したものと一致するカラムを取得
+        if ($request->has('category_id') && $categorySearchId != ('指定なし')) {
+            $query->where('category_id', $categorySearchId)->get();
+        }
+
+        // プルダウンメニューで指定なし以外を選択した場合、$query->whereで選択したものと一致するカラムを取得
+        if ($request->has('status_id') && $statusSearchId != ('指定なし')) {
+            $query->where('status_id', $statusSearchId)->get();
+        }
+
+        // キーワードの文字列を含むカラムを取得
+        foreach($overviewKeywords as $key => $overviewKeyword){
+            if ($overviewKeyword) {
+                $query->where('overview', 'like', '%'.self::escapeLike($overviewKeyword).'%')->get();
+            }
+        }
+
+        //ユーザを1ページにつき10件ずつ表示
+        $products = $query->paginate(10);
+
+        //カテゴリー、受付状態のデータ取得
+        $categories = Category::orderBy('id')->get();
+        $statuses = Status::orderBy('id')->get();
+
+        $data=[
+            'categories' => $categories,
+            'statuses' => $statuses,
+            'products' => $products,
+            'request' => $request,
+        ];
+
+        return view('products.frontIndexProduct',$data);
+    }
+    
+    public function show($id)
+    {
+        //全データ取得
+        $categories = Category::orderBy('id')->get();
+        $statuses = Status::orderBy('id')->get();
+        //商品指定して取得
+        $product = Product::find($id);
+
+        if (is_null($product)) {
+            abort(404);
+        }
+
+        $data=[
+            'categories' => $categories,
+            'statuses' => $statuses,
+            'product' => $product,
+        ];
+
+        return view('products.frontShowProduct',$data);
+    }
+
     public function create()
     {
         //プルダウン用のデータ取得
@@ -70,6 +155,11 @@ class FrontProductsController extends Controller
         $product->save();
         
         return back();
+    }
+
+    //LIKE SQLクエリのエスケープ処理
+    public static function escapeLike($str) {
+        return str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $str);
     }
 
     

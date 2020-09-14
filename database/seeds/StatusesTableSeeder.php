@@ -11,6 +11,7 @@ class StatusesTableSeeder extends Seeder
      */
     public function run()
     {
+        //受講生受付可能状態名
         DB::table('statuses')->insert([
             'status_name' => '受講可',
         ]);
