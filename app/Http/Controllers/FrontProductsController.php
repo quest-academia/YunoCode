@@ -30,7 +30,7 @@ class FrontProductsController extends Controller
 
 
     public function search(Request $request){
-        try{
+
             $query = Product::query();
 
             //$request->input()で検索時に入力した項目を取得
@@ -73,12 +73,7 @@ class FrontProductsController extends Controller
             ];
 
             return view('products.frontIndexProduct',$data);
-        
-        } catch (\Exception $e) {
-            session()->flash('flash_message', '検索に失敗しました。');
-        }
-
-        
+            
     }
     
     public function show($id)
