@@ -163,7 +163,7 @@ class FrontProductsController extends Controller
             // トランザクションの保存処理を実行
             \DB::commit();
 
-            return back();
+            return redirect('products/')->with('flash_message', '出品が完了しました');
 
         } catch (\Exception $e) {
 
