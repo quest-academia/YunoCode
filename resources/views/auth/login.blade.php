@@ -2,36 +2,37 @@
 
 @section('content')
 
-    <div class="center jumbotron bg-warning">
-        <div class="text-center text-white">
-            <h1>YunoCode</h1>
-        </div>
+    <div class="text-center blue-text">
+        <h1 class="login_title text-center text-blue mt-5">ログイン</h1>
     </div>
 
-    <div class="text-center">
-        <h3 class="login_title text-left d-inline-block mt-5">ログイン</h3>
-    </div>
+    <div class="row mt-3 mb-1">
+        <div class="col-sm-4 offset-sm-4">
 
-    <div class="row mt-5 mb-5">
-        <div class="col-sm-6 offset-sm-3">
-
-            {!! Form::open(['route' => 'login.post']) !!}
-                <div class="form-group">
-                    {!! Form::label('email', 'メールアドレス') !!}
+            <div class="form-group">
+                <h5>メールアドレス</h5>
                     {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
-                </div>
+            </div>
 
-                <div class="form-group">
-                    {!! Form::label('password', 'パスワード') !!}
+            <div class="form-group">
+                <h5>ログイン</h5>  
                     {!! Form::password('password', ['class' => 'form-control']) !!}
-                </div>
-
-                {!! Form::submit('ログイン', ['class' => 'btn btn btn-primary mt-2']) !!}
-            {!! Form::close() !!}
-
-            <p class="mt-3">{!! link_to_route('signup', '初めての方はこちらから') !!}</p>
+            </div>
             
         </div>
-    </div>
+    </div>   
+
+    <div class="text-center col-sm-4 offset-sm-4">
+        
+                <div class="btn text-center">
+                    {!! Form::submit('ログイン', ['class' => 'btn btn btn-primary mt-2']) !!}
+                    {!! Form::close() !!}
+                </div>
     
+                <div class="btn text-center">
+                    {!! Form::submit('初めての方はこちらから', ['class' => 'btn btn btn-info mt-2']) !!}
+                    {!! Form::close() !!}
+                </div> 
+    </div>
+
 @endsection
