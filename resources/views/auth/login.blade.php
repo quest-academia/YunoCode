@@ -15,7 +15,7 @@
             </div>
 
             <div class="form-group">
-                <h5>ログイン</h5>  
+                <h5>パスワード</h5>  
                     {!! Form::password('password', ['class' => 'form-control']) !!}
             </div>
             
