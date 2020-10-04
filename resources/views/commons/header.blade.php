@@ -15,6 +15,7 @@
                 <li class="nav-item">{!! link_to_route('products.create', '商品登録', [], ['class' => 'nav-link']) !!}</li>
                 <li class="nav-item"><a href="" class="nav-link  white-text">〇〇さん</a></li>
                 <li class="nav-item"><a href="" class="nav-link  white-text">ログアウト</a></li>
+                <li class="nav-item"><a href="" class="nav-link white-text">ログイン</a></li>
             </ul>
         </div>
 

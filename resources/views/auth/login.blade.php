@@ -24,13 +24,13 @@
 
     <div class="text-center col-sm-4 offset-sm-4">
         
-                <div class="btn text-center">
-                    {!! Form::submit('ログイン', ['class' => 'btn btn btn-primary mt-2']) !!}
+                <div class="text-center btn-lg">
+                {!! Form::submit('ログイン', ['class' => 'btn btn-lg btn-primary w-50 mt-2']) !!}
                     {!! Form::close() !!}
                 </div>
     
-                <div class="btn text-center">
-                    {!! Form::submit('初めての方はこちらから', ['class' => 'btn btn btn-info mt-2']) !!}
+                <div class="text-center btn-sm">
+                    {!! Form::submit('初めての方はこちらから', ['class' => 'btn btn-sm btn-info mt-2']) !!}
                     {!! Form::close() !!}
                 </div> 
     </div>
