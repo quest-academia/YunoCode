@@ -11,7 +11,7 @@
             <div class="form-group">
                 <h6 class="inline-block">キーワード検索</h6>
                     @if($request->input('overview'))
-                        {!! Form::text('overview',$request->overview,['class'=>'form-control input-sm']) !!}
+                        {!! Form::text('overview', htmlspecialchars($request->overview) ,['class'=>'form-control input-sm']) !!}
                     @else
                         {!! Form::text('overview',null,['class'=>'form-control input-sm']) !!}
                     @endif

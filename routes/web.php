@@ -16,3 +16,5 @@
     //商品関連のページを表示する
     Route::resource('products', 'FrontProductsController', ['only' => ['index', 'show', 'create', 'store']]);
     Route::post('Search','FrontProductsController@search')->name('search');
+
+    Route::get('/error', function () {return view('errors.500');});
