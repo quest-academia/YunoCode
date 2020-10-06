@@ -170,8 +170,9 @@ class FrontProductsController extends Controller
             // エラー発生時は、DBへの保存処理が無かったことにする（ロールバック）
             \DB::rollBack();
           
-            //戻ってフラッシュメッセージ表示
-            return back()->with('flash_message', '登録が失敗しました');
+            //フラッシュメッセージ表示
+            // session()->flash('flash_message', '投稿に失敗しました');
+            return redirect('/error')->with('flash_message', '投稿に失敗しました');
             
         }
     }
