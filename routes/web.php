@@ -17,5 +17,9 @@
     Route::resource('products', 'FrontProductsController', ['only' => ['index', 'show', 'create', 'store']]);
     Route::post('Search','FrontProductsController@search')->name('search');
 
+<<<<<<< HEAD
     //ログイン画面の表示をする
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+=======
+    Route::get('/error', function () {return view('errors.500');});
+>>>>>>> 5d777f4b3a8e30d57746cdb47ec2894fe7c59bc1
