@@ -15,18 +15,18 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',255);
-            $table->string('email',255);
+            $table->string('name',32);
+            $table->string('email',256);
             $table->char('password',32);
-            $table->enum('gender',128);
-            $table->date('birthday')->nullable();
+            $table->integer('gender')->nullable();
+            $table->timestamp('birthday')->nullable();
             $table->text('introduction')->nallable();
             $table->integer('career_id')->unsigned()->index();
-            $table->integer('category_id')->unsigned()->index();
-            $table->bit('authority',1);
+            $tablu->integer('category_id')->unsigned()->index();
+            $table->integer('authority');
 
-            $table->foreign('career_id')->references('id')->on('careers')->onDelete('career');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('category');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('career_id')->references('id')->on('careers')->onDelete('cascade');
         });
     }
 
