@@ -18,12 +18,12 @@
                 <h5>パスワード</h5>  
                     {!! Form::password('password', ['class' => 'form-control']) !!}
             </div>
-            
+
         </div>
     </div>   
 
     <div class="text-center col-sm-4 offset-sm-4">
-        
+
                 <div class="text-center btn-lg">
                 {!! Form::submit('ログイン', ['class' => 'btn btn-lg btn-primary w-50 mt-2']) !!}
                     {!! Form::close() !!}
@@ -36,3 +36,5 @@
     </div>
 
 @endsection
+
+@endsection 

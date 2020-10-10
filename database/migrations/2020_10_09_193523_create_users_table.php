@@ -17,16 +17,14 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name',32);
             $table->string('email',256);
-            $table->char('password',32);
+            $table->string('password',32);
             $table->integer('gender')->nullable();
             $table->timestamp('birthday')->nullable();
-            $table->text('introduction')->nallable();
-            $table->integer('career_id')->unsigned()->index();
-            $tablu->integer('category_id')->unsigned()->index();
-            $table->integer('authority');
+            $table->text('introduction')->nullable();
+            $table->integer('category_id')->unsigned()->index();
+            $table->integer('authority')->unsigned()->index();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('career_id')->references('id')->on('careers')->onDelete('cascade');
         });
     }
 
