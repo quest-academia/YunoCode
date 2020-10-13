@@ -15,7 +15,10 @@
 
     //商品関連のページを表示する
     Route::resource('products', 'FrontProductsController', ['only' => ['index', 'show', 'create', 'store']]);
-    Route::post('Search','FrontProductsController@search')->name('search');
+    Route::post('Search', 'FrontProductsController@search')->name('search');
 
     //ログイン画面の表示をする
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+
+    //新規登録画面の表示をする
+    Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
