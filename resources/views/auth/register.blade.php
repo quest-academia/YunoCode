@@ -9,9 +9,10 @@
     <div class="row mt-4 mb-1">
         <div class="col-sm-6 offset-sm-3">
 
+        {!! Form::open(['route' => 'signup.post']) !!}
             <div class="form-group">
                 <h5>ユーザー名</h5>
-                {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
+                {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
