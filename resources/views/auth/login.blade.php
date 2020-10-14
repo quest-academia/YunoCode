@@ -25,7 +25,7 @@
     <div class="text-center col-sm-4 offset-sm-4">
 
                 <div class="text-center btn-lg">
-                {!! Form::submit('ログイン', ['class' => 'btn btn-lg btn-primary w-50 mt-2']) !!}
+                {!! Form::submit('ログイン', ['class' => 'btn btn-lg btn-primary mt-2']) !!}
                     {!! Form::close() !!}
                 </div>
     

@@ -30,8 +30,8 @@
                 {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
             </div>
 
-            <div class="text-right text-blue btn-lg">
-                {!! Form::submit('登録', ['class' => 'btn btn-primary btn-lg w-25 mt-2']) !!}
+            <div class="text-right text-blue">
+                {!! Form::submit('登録', ['class' => 'btn btn-primary w-25 mt-2']) !!}
                 {!! Form::close() !!}
             </div>
 

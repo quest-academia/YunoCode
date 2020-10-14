@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->text('introduction')->nullable();
             $table->integer('category_id')->unsigned()->index();
             $table->integer('authority')->unsigned()->index();
+            $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
