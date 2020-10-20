@@ -50,7 +50,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:32'],
-            'email' => ['required', 'string', 'email', 'max:256', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:64', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -68,5 +68,25 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function rules()
+    {
+        //バリデーション
+        return [
+            'name' => 'required|string|max:32',
+            'email' => 'required|string|email|max:64|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+            'password_confirmation' => 'required|string|min:8|confirmed',
+        ];
+    }
+
+    public function messages()
+    {
+        //カスタムバリデーションの表示
+        return [
+            'name_require' => '必須項目です',
+        ];
+
     }
 }
