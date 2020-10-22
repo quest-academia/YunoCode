@@ -11,12 +11,21 @@
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
-                <li class="nav-item">{!! link_to_route('products.index', '商品一覧', [], ['class' => 'nav-link']) !!}</a></li>
-                <li class="nav-item">{!! link_to_route('products.create', '商品登録', [], ['class' => 'nav-link']) !!}</li>
-                <li class="nav-item"><a href="" class="nav-link  white-text">〇〇さん</a></li>
-                <li class="nav-item"><a href="" class="nav-link  white-text">ログアウト</a></li>
-                <li class="nav-item">{!! link_to_route('login', 'ログイン', [], ['class' => 'nav-link']) !!}</li>
-                <li class="nav-item">{!! link_to_route('signup', '新規登録', [], ['class' => 'nav-link']) !!}</li>
+
+                @if (Auth::check())
+
+                    <li class="nav-item">{!! link_to_route('products.index', '商品一覧', [], ['class' => 'nav-link']) !!}</a></li>
+                    <li class="nav-item">{!! link_to_route('products.create', '商品登録', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item"><a href="" class="nav-link  white-text">〇〇さん</a></li>
+                    <li class="nav-item">{!! link_to_route('logout', 'ログアウト', [], ['class' => 'nav-link']) !!}</li>
+
+                @else 
+
+                    <li class="nav-item">{!! link_to_route('login', 'ログイン', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item">{!! link_to_route('signup', '新規登録', [], ['class' => 'nav-link']) !!}</li>
+
+                @endif
+
             </ul>
         </div>
 

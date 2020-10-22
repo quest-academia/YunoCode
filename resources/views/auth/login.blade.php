@@ -9,14 +9,17 @@
     <div class="row mt-3 mb-1">
         <div class="col-sm-6 offset-sm-3">
 
-            <div class="form-group">
+            {!! Form::open(['route' => 'login.post']) !!}
+            <div class="form-group @if(!empty($errors->first('email'))) has-error @endif">
                 <h5>メールアドレス</h5>
-                    {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
+                {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
+                <span class="text-danger help-block">{{$errors->first('email')}}</span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group　@if(!empty($errors->first('password'))) has-error @endif">
                 <h5>パスワード</h5>  
-                    {!! Form::password('password', ['class' => 'form-control']) !!}
+                {!! Form::password('password', ['class' => 'form-control']) !!}
+                <span class="text-danger help-block">{{$errors->first('password')}}</span>
             </div>
 
         </div>
@@ -24,15 +27,15 @@
 
     <div class="text-center">
 
-                <div class="text-center">
+            <div class="text-center">
                 {!! Form::submit('ログイン', ['class' => 'btn btn-primary mt-2']) !!}
-                    {!! Form::close() !!}
-                </div>
+                {!! Form::close() !!}
+            </div>
     
-                <div class="text-center col-sm-12 btn-sm">
-                    {!! Form::submit('初めての方はこちらから', ['class' => 'btn btn-sm btn-info mt-2']) !!}
-                    {!! Form::close() !!}
-                </div> 
+            <div class="text-center col-sm-12 btn-sm">
+                {!! Form::submit('初めての方はこちらから', ['class' => 'btn btn-sm btn-info mt-2']) !!}
+                {!! Form::close() !!}
+            </div> 
     </div>
 
 @endsection
