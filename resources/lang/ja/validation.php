@@ -118,6 +118,7 @@ return [
         'name' => 'ユーザー名',
         'email' => 'メールアドレス',
         'password' => 'パスワード',
+        'credentials' => 'パスワード',
     ],
 
 ];

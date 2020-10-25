@@ -25,17 +25,16 @@
         </div>
     </div>   
 
-    <div class="text-center">
+    <div class="text-center mt-3">
 
             <div class="text-center">
                 {!! Form::submit('ログイン', ['class' => 'btn btn-primary mt-2']) !!}
                 {!! Form::close() !!}
             </div>
-    
-            <div class="text-center col-sm-12 btn-sm">
-                {!! Form::submit('初めての方はこちらから', ['class' => 'btn btn-sm btn-info mt-2']) !!}
-                {!! Form::close() !!}
-            </div> 
+            
+            <a button type="button" class="btn btn-info mt-3" href="http://192.168.33.11/signup">初めての方はこちらから</button></a>
+
     </div>
+    
 
 @endsection
