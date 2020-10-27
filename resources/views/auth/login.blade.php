@@ -32,7 +32,7 @@
                 {!! Form::close() !!}
             </div>
             
-            <a button type="button" class="btn btn-info mt-3" href="http://192.168.33.11/signup">初めての方はこちらから</button></a>
+            <a class="btn btn-info mt-3" href="http://192.168.33.11/signup">初めての方はこちらから</a>
 
     </div>
     
