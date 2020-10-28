@@ -32,7 +32,7 @@
                 {!! Form::close() !!}
             </div>
             
-            <a class="btn btn-info mt-3" href="http://192.168.33.11/signup">初めての方はこちらから</a>
+            <a class="btn btn-info mt-3" href="/signup">初めての方はこちらから</a>
 
     </div>
     
