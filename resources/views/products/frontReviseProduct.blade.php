@@ -6,7 +6,7 @@
 
         <h1 class="text-center blue-text mt-5">商品修正画面</h1>
 
-        {!! Form::open(['route'=>'products.store', 'enctype'=>'multipart/form-data']) !!}
+        {!! Form::open(['route'=>'products.edit', 'enctype'=>'multipart/form-data']) !!}
 
             <div class="form-group mt-5">
 

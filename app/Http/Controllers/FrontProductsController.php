@@ -182,5 +182,20 @@ class FrontProductsController extends Controller
         return str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $str);
     }
 
-    
+    public function edit()
+    {
+        $this->middleware('guest')->except('edit');
+
+        //データベースの入力内容を更新後、商品一覧画面に遷移する。
+        
+        //入力内容をチェックしてデータベースを更新
+
+        //保存が完了したら商品一覧画面に遷移する
+
+        //データベースの入力内容を削除後、商品一覧画面に遷移する。
+
+        return view('products.frontEditProduct',$data);
+
+    }
+
 }
