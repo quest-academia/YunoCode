@@ -182,7 +182,7 @@ class FrontProductsController extends Controller
         return str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $str);
     }
 
-    public function edit()
+    public function edit($id)
     {
         $this->middleware('guest')->except('edit');
 
@@ -194,7 +194,7 @@ class FrontProductsController extends Controller
 
         //データベースの入力内容を削除後、商品一覧画面に遷移する。
 
-        return view('products.frontEditProduct',$data);
+        return view('products.frontReviseProduct',$data);
 
     }
 
