@@ -6,7 +6,7 @@
 
         <h1 class="text-center blue-text mt-5">商品修正画面</h1>
 
-        {!! Form::open(['route'=>'products.edit', 'enctype'=>'multipart/form-data']) !!}
+        {!! Form::open(['route'=>'search', 'enctype'=>'multipart/form-data']) !!}
 
             <div class="form-group mt-5">
 
@@ -66,7 +66,7 @@
 
                 <div class="row">
 
-                    <div class="col-md-12">
+                    <div class="cdol-m-12">
                         <h4 class="">・値段</h4>
                     </div>
 
@@ -84,48 +84,32 @@
 
                     <div class="col-md-6"></div>
 
-
                 </div>
 
-                <div class="form-group @if(!empty($errors->first('category_id'))) has-error @endif">
+                    <div class="form-group @if(!empty($errors->first('category_id'))) has-error @endif">
                     <h4 class="">・商品カテゴリー</h4>
                     <select type="text" class="" name="category_id">
                         <option hidden>選択してください</option>
-                        @foreach($categories as $key=>$category)
-                            @if((!empty($request->category_id) && $request->category_id == $category->id) || old('category_id') == $category->id )
-                                <option value="{{ $category->id }}" selected>{{ $category->category_name }}</option>
-                            @else
-                                <option value="{{ $category->id }}">{{ $category->category_name }}</option>
-                            @endif
-                        @endforeach
                     </select></br>
                     <span class="text-danger help-block">{{$errors->first('category_id')}}</span>
                 </div>
-                
-                <div class="form-group @if(!empty($errors->first('category_id'))) has-error @endif">
+
+                        <div class="form-group @if(!empty($errors->first('category_id'))) has-error @endif">
                     <h4 class="">・受講生受付状態</h4>
                     <select type="text" class="form-group @if(!empty($errors->first('status_id'))) has-error @endif" name="status_id">
                         <option hidden>選択してください</option>
-                        @foreach($statuses as $key=>$status)
-                            @if((!empty($request->status_id) && $request->status_id == $status->id) || old('status_id') == $status->id )
-                                <option value="{{ $status->id }}") selected >{{ $status->status_name }}</option>
-                            @else
-                                <option value="{{ $status->id }}")>{{ $status->status_name }}</option>
-                            @endif
-                        @endforeach
                     </select></br>
                     <span class="text-danger help-block">{{$errors->first('status_id')}}</span>
                 </div>
 
-                <div class="text-center">
-                    {!! Form::submit('削除',['class'=> 'btn btn-danger w-25']) !!}
-                </div>
 
-                <div class="text-center">
-                    {!! From::submit('修正',['class'=> 'btn btn-primary w-25']) !!}
+                <div class="text-center mt-3">
+                    {!! Form::submit('削除',['class'=> 'btn btn-danger w-25']) !!}
+                    {!! Form::submit('修正',['class'=> 'btn btn-primary w-25']) !!}
                 </div>
 
             </div>
+                
         {!! Form::close() !!}
 
     </div>

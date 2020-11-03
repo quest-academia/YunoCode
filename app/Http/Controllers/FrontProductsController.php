@@ -186,6 +186,13 @@ class FrontProductsController extends Controller
     {
         $this->middleware('guest')->except('edit');
 
+        $user = \Auth::user();
+        
+
+        $data=[
+           'user' => $user,
+        ];
+
         //データベースの入力内容を更新後、商品一覧画面に遷移する。
         
         //入力内容をチェックしてデータベースを更新

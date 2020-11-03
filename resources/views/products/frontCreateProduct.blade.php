@@ -110,7 +110,7 @@
                             @if((!empty($request->status_id) && $request->status_id == $status->id) || old('status_id') == $status->id )
                                 <option value="{{ $status->id }}") selected >{{ $status->status_name }}</option>
                             @else
-                                <option value="{{ $status->id }}")>{{ $status->status_name }}</option>
+                                <option value="{{ $status->id }}")>{{ $status->status_name }}</optison>
                             @endif
                         @endforeach
                     </select></br>
