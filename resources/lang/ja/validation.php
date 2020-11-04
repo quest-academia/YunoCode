@@ -115,6 +115,10 @@ return [
         'price' => '値段',
         'category_id' => 'カテゴリー',
         'status_id' => '受講生受付状態',
+        'name' => 'ユーザー名',
+        'email' => 'メールアドレス',
+        'password' => 'パスワード',
+        'credentials' => 'パスワード',
     ],
 
 ];

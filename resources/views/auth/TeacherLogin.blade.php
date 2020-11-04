@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+@extends('layouts.app')
+
+>>>>>>> develop
 @section('content')
 
     <div class="text-center blue-text">
@@ -20,6 +25,7 @@
           </div>
         </div>
 
+<<<<<<< HEAD
         <div class="text-center mt-3">
 
         <div class="text-center">
@@ -27,10 +33,21 @@
                 {!! Form::close() !!}
         </div>
 
-              <p class="mt-3">{!! link_to_route('/', '初めての方はこちらから') !!}</p>
-              {!! Form::close() !!}
+            <a class="btn btn-info mt-3" href="/">初めての方はこちらから</a>
         
     </div>
+=======
+        <div class="text-center  mt-3">
+
+          <div class="text-center">
+                {!! Form::submit('ログイン', ['class' => 'btn btn btn-primary mt-2']) !!}
+                {!! Form::close() !!}
+          </div>
+
+              <a class="btn btn-info mt-3" href="/">初めての方はこちらから</a>
+        
+        </div>
+>>>>>>> develop
     
 @endsection
 
