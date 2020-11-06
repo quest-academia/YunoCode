@@ -28,8 +28,11 @@
     Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
 
     Route::get('/error', function () {return view('errors.500');});
+    
 
     //講師用ログイン画面を表示する
     Route::get('teacher/login', function () 
     {
         return view('auth.TeacherLogin');});
+
+
