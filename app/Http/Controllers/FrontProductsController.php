@@ -186,20 +186,19 @@ class FrontProductsController extends Controller
     {
         $this->middleware('guest')->except('edit');
 
+        $categories = Category::orderBy('id')->get();
+        $statuses = Status::orderBy('id')->get();
+        
+        $product = Product::find($id);
+
         $user = \Auth::user();
         
-
         $data=[
            'user' => $user,
+           'categories' => $categories,
+           'statuses' => $statuses,
+           'product' => $product,
         ];
-
-        //データベースの入力内容を更新後、商品一覧画面に遷移する。
-        
-        //入力内容をチェックしてデータベースを更新
-
-        //保存が完了したら商品一覧画面に遷移する
-
-        //データベースの入力内容を削除後、商品一覧画面に遷移する。
 
         return view('products.frontReviseProduct',$data);
 

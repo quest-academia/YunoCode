@@ -120,7 +120,7 @@
                 <div class="text-center">
                     {!! Form::submit('登録',['class'=> 'btn btn-primary w-25']) !!}
                 </div>
-
+                
             </div>
         {!! Form::close() !!}
 
