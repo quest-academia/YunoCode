@@ -12,19 +12,19 @@
 
                 <div class="form-group @if(!empty($errors->first('title'))) has-error @endif">
                     <h4 style="display:inline;">・商品名<span class="display-5"> (32文字以内)</span></h4>
-                    {!! Form::text('title',null,['class'=>'form-control ']) !!}
+                    {!! Form::text('title',$product->title,['class'=>'form-control ']) !!}
                     <span class="text-danger help-block">{{$errors->first('title')}}</span>
                 </div>
                 
                 <div class="form-group @if(!empty($errors->first('promotion'))) has-error @endif">
                     <h4>・商品PR(128文字以内)</h4>
-                    {!! Form::textarea('promotion',null,['class'=>'form-control']) !!}
+                    {!! Form::textarea('promotion',$product->promotion,['class'=>'form-control']) !!}
                     <span class="text-danger help-block">{{$errors->first('promotion')}}</span>
                 </div>
 
                 <div class="form-group @if(!empty($errors->first('overview'))) has-error @endif">
                     <h4 class="mt-3">・商品概要説明(256文字以内)</h4>
-                    {!! Form::textarea('overview',null,['class'=>'form-control']) !!}
+                    {!! Form::textarea('overview',$product->overview,['class'=>'form-control']) !!}
                     <span class="text-danger help-block">{{$errors->first('overview')}}</span>
                 </div>
 
@@ -72,7 +72,7 @@
 
                     <div class="form-group @if(!empty($errors->first('price'))) has-error @endif col-md-6">
                         <div class="inline-block">
-                            {!! Form::text('price',null,['class'=>'form-control']) !!}
+                            {!! Form::text('price',$product->price,['class'=>'form-control']) !!}
                         </div>
                         <div class="inline-block">
                             <p>円</p>
@@ -86,7 +86,7 @@
 
                 </div>
 
-                    <div class="form-group @if(!empty($errors->first('category_id'))) has-error @endif">
+                <div class="form-group @if(!empty($errors->first('category_id'))) has-error @endif">
                     <h4 class="">・商品カテゴリー</h4>
                     <select type="text" class="" name="category_id">
                         <option hidden>選択してください</option>
@@ -101,7 +101,7 @@
                     <span class="text-danger help-block">{{$errors->first('category_id')}}</span>
                 </div>
 
-                        <div class="form-group @if(!empty($errors->first('category_id'))) has-error @endif">
+                <div class="form-group @if(!empty($errors->first('category_id'))) has-error @endif">
                     <h4 class="">・受講生受付状態</h4>
                     <select type="text" class="form-group @if(!empty($errors->first('status_id'))) has-error @endif" name="status_id">
                         <option hidden>選択してください</option>
@@ -113,14 +113,14 @@
                             @endif
                         @endforeach
                     </select></br>
-                    <span class="text-danger help-block">{{$errors->first('status_id')}}</span>
+                        <span class="text-danger help-block">{{$errors->first('status_id')}}</span>
                 </div>
                 
                 <div class="text-center">
                 <a class="btn btn-danger mt-3 w-25" href="">削除</a>
                 <span style="margin-left:100px"><a class="btn btn-primary mt-3 w-25" href="">修正</a>
                 </div>
-    
+
             </div>
 
         {!! Form::close() !!}
