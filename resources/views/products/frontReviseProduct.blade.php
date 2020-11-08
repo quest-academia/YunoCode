@@ -36,6 +36,7 @@
 
                     <div class="form-group @if(!empty($errors->first('main_image'))) has-error @endif col-md-12">
                         <h5>メイン画像</h5>
+                        <img src="/productImage/{{ $product->main_image }}" width="250" height="250"></br>
                         {!! Form::file('main_image',null,['class'=>'form-control pt-3']) !!}</br>
                         <span class="text-danger help-block">{{$errors->first('main_image')}}</span>
                         </br>
