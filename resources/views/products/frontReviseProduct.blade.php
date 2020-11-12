@@ -44,6 +44,7 @@
 
                     <div class="form-group @if(!empty($errors->first('sub_image1'))) has-error @endif col-md-4">
                         <h5>サブ画像1</h5>
+                        <img src="/productImage/{{ $product->sub_image1 }}" width="150" height="150">
                         {!! Form::file('sub_image1',null,['class'=>'form-control pt-3']) !!}</br>
                         <span class="text-danger help-block">{{$errors->first('sub_image1')}}</span>
                         </br>
@@ -51,6 +52,7 @@
 
                     <div class="form-group @if(!empty($errors->first('sub_image2'))) has-error @endif col-md-4">
                         <h5>サブ画像2</h5>
+                        <img src="/productImage/{{ $product->sub_image2 }}" width="150" height="150">
                         {!! Form::file('sub_image2',null,['class'=>'form-control pt-3']) !!}</br>
                         <span class="text-danger help-block">{{$errors->first('sub_image2')}}</span>
                         </br>
@@ -58,6 +60,7 @@
 
                     <div class="form-group @if(!empty($errors->first('sub_image3'))) has-error @endif col-md-4">
                         <h5>サブ画像3</h5>
+                        <img src="/productImage/{{ $product->sub_image3 }}" width="150" height="150">
                         {!! Form::file('sub_image3',null,['class'=>'form-control pt-3']) !!}</br>
                         <span class="text-danger help-block">{{$errors->first('sub_image3')}}</span>
                         </br>
@@ -90,8 +93,8 @@
                 <div class="form-group @if(!empty($errors->first('category_id'))) has-error @endif">
                     <h4 class="">・商品カテゴリー</h4>
                     <select type="text" class="" name="category_id">
-                        <option hidden>選択してください</option>
                         @foreach($categories as $key=>$category)
+                        <option hidden>{{ $category->category_name }}</option>
                             @if((!empty($request->category_id) && $request->category_id == $category->id) || old('category_id') == $category->id )
                                 <option value="{{ $category->id }}" selected>{{ $category->category_name }}</option>
                             @else
@@ -105,8 +108,8 @@
                 <div class="form-group @if(!empty($errors->first('category_id'))) has-error @endif">
                     <h4 class="">・受講生受付状態</h4>
                     <select type="text" class="form-group @if(!empty($errors->first('status_id'))) has-error @endif" name="status_id">
-                        <option hidden>選択してください</option>
                         @foreach($statuses as $key=>$status)
+                        <option hidden>{{ $status->status_name }}</option>
                             @if((!empty($request->status_id) && $request->status_id == $status->id) || old('status_id') == $status->id )
                                 <option value="{{ $status->id }}") selected >{{ $status->status_name }}</option>
                             @else
