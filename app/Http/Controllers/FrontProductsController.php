@@ -188,7 +188,10 @@ class FrontProductsController extends Controller
 
         $categories = Category::orderBy('id')->get();
         $statuses = Status::orderBy('id')->get();
-        
+
+        $categoryName = Product::find($id)->category;
+        $statusName = Product::find($id)->status;
+
         $product = Product::find($id);
 
         $user = \Auth::user();
@@ -198,6 +201,8 @@ class FrontProductsController extends Controller
            'categories' => $categories,
            'statuses' => $statuses,
            'product' => $product,
+           'categoryName' => $categoryName,
+           'statusName' => $statusName,
         ];
 
         return view('products.frontReviseProduct',$data);

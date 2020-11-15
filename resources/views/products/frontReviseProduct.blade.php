@@ -93,8 +93,8 @@
                 <div class="form-group @if(!empty($errors->first('category_id'))) has-error @endif">
                     <h4 class="">・商品カテゴリー</h4>
                     <select type="text" class="" name="category_id">
+                        <option hidden>{{ $categoryName->category_name }}</option>
                         @foreach($categories as $key=>$category)
-                        <option hidden>{{ $category->category_name }}</option>
                             @if((!empty($request->category_id) && $request->category_id == $category->id) || old('category_id') == $category->id )
                                 <option value="{{ $category->id }}" selected>{{ $category->category_name }}</option>
                             @else
@@ -108,21 +108,21 @@
                 <div class="form-group @if(!empty($errors->first('category_id'))) has-error @endif">
                     <h4 class="">・受講生受付状態</h4>
                     <select type="text" class="form-group @if(!empty($errors->first('status_id'))) has-error @endif" name="status_id">
+                        <option hidden>{{ $statusName->status_name }}</option>    
                         @foreach($statuses as $key=>$status)
-                        <option hidden>{{ $status->status_name }}</option>
                             @if((!empty($request->status_id) && $request->status_id == $status->id) || old('status_id') == $status->id )
                                 <option value="{{ $status->id }}") selected >{{ $status->status_name }}</option>
                             @else
                                 <option value="{{ $status->id }}")>{{ $status->status_name }}</optison>
-                            @endif
+                                @endif
                         @endforeach
                     </select></br>
-                        <span class="text-danger help-block">{{$errors->first('status_id')}}</span>
+                    <span class="text-danger help-block">{{$errors->first('status_id')}}</span>
                 </div>
                 
                 <div class="text-center">
-                <a class="btn btn-danger mt-3 w-25" href="">削除</a>
-                <span style="margin-left:100px"><a class="btn btn-primary mt-3 w-25" href="">修正</a>
+                    <a class="btn btn-danger mt-3 w-25" href="">削除</a>
+                    <span style="margin-left:100px"><a class="btn btn-primary mt-3 w-25" href="">修正</a>
                 </div>
 
             </div>
