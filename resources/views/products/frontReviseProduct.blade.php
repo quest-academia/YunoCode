@@ -42,30 +42,48 @@
                         </br>
                     </div>
 
-                    <div class="form-group @if(!empty($errors->first('sub_image1'))) has-error @endif col-md-4">
-                        <h5>サブ画像1</h5>
-                        <img src="/productImage/{{ $product->sub_image1 }}" width="150" height="150">
-                        {!! Form::file('sub_image1',null,['class'=>'form-control pt-3']) !!}</br>
-                        <span class="text-danger help-block">{{$errors->first('sub_image1')}}</span>
-                        </br>
-                    </div>
+                    @if($product->sub_image1)
+                        <div class="form-group @if(!empty($errors->first('sub_image1'))) has-error @endif col-md-4">
+                            <h5>サブ画像1</h5>
+                            <img src="/productImage/{{$product->sub_image1}}" alt="" width="150" height="150"></br>
+                            {!! Form::file('sub_image1',null,['class'=>'form-control pt-3']) !!}
+                            @else
+                            <div class="text-left col-md-4 mt-2">
+                            <p>画像なし</p>
+                            {!! Form::file('sub_image1',null,['class'=>'form-control pt-3']) !!}</br>
+                            <span class="text-danger help-block">{{$errors->first('sub_image1')}}</span>
+                            @endif
+                            </br>
+                        </div>
 
-                    <div class="form-group @if(!empty($errors->first('sub_image2'))) has-error @endif col-md-4">
-                        <h5>サブ画像2</h5>
-                        <img src="/productImage/{{ $product->sub_image2 }}" width="150" height="150">
-                        {!! Form::file('sub_image2',null,['class'=>'form-control pt-3']) !!}</br>
-                        <span class="text-danger help-block">{{$errors->first('sub_image2')}}</span>
-                        </br>
-                    </div>
-
-                    <div class="form-group @if(!empty($errors->first('sub_image3'))) has-error @endif col-md-4">
-                        <h5>サブ画像3</h5>
-                        <img src="/productImage/{{ $product->sub_image3 }}" width="150" height="150">
-                        {!! Form::file('sub_image3',null,['class'=>'form-control pt-3']) !!}</br>
-                        <span class="text-danger help-block">{{$errors->first('sub_image3')}}</span>
-                        </br>
-                    </div>
-
+                    @if($product->sub_image2)
+                        <div class="form-group @if(!empty($errors->first('sub_image2'))) has-error @endif col-md-4">
+                            <h5>サブ画像2</h5>
+                            <img src="/productImage/{{$product->sub_image2}}" alt="" width="150" height="150"></br>
+                            {!! Form::file('sub_image1',null,['class'=>'form-control pt-3']) !!}
+                            @else
+                            <div class="text-left col-md-4 mt-2">
+                            <p>画像なし</p>
+                            {!! Form::file('sub_image2',null,['class'=>'form-control pt-3']) !!}</br>
+                            <span class="text-danger help-block">{{$errors->first('sub_image2')}}</span>
+                            @endif
+                            </br>
+                        </div>
+                
+                    @if($product->sub_image3)
+                        <div class="form-group @if(!empty($errors->first('sub_image3'))) has-error @endif col-md-4">
+                            <h5>サブ画像3</h5>
+                            <img src="/productImage/{{ $product->sub_image3 }}" width="150" height="150"></br>
+                            {!! Form::file('sub_image1',null,['class'=>'form-control pt-3']) !!}
+                            @else
+                            <div class="text-left col-md-4 mt-2">
+                            <p>画像なし</p>
+                            {!! Form::file('sub_image3',null,['class'=>'form-control pt-3']) !!}</br>
+                            <span class="text-danger help-block">{{$errors->first('sub_image3')}}</span>
+                            @endif
+                            </br>
+                        </div> 
+                   
                 </div>
 
                 <div class="row">
@@ -114,7 +132,7 @@
                                 <option value="{{ $status->id }}") selected >{{ $status->status_name }}</option>
                             @else
                                 <option value="{{ $status->id }}")>{{ $status->status_name }}</optison>
-                                @endif
+                            @endif
                         @endforeach
                     </select></br>
                     <span class="text-danger help-block">{{$errors->first('status_id')}}</span>
