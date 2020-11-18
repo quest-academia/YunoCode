@@ -14,14 +14,13 @@
     Route::get('/', 'FrontTopPageController@index')->name('/');
 
     //商品関連のページを表示する
-    Route::resource('products', 'FrontProductsController', ['only' => ['index', 'show', 'create', 'store']]);
+    Route::resource('products', 'FrontProductsController', ['only' => ['index', 'show', 'create', 'store', 'edit']]);
     Route::post('Search', 'FrontProductsController@search')->name('search');
-
+    
     //ログイン画面の表示をする
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\LoginController@login')->name('login.post');
     Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-    
     
     //新規登録画面の表示をする
     Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');

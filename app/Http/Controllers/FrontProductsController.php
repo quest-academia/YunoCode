@@ -182,5 +182,31 @@ class FrontProductsController extends Controller
         return str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $str);
     }
 
-    
+    public function edit($id)
+    {
+        $this->middleware('guest')->except('edit');
+
+        $categories = Category::orderBy('id')->get();
+        $statuses = Status::orderBy('id')->get();
+
+        $categoryName = Product::find($id)->category;
+        $statusName = Product::find($id)->status;
+
+        $product = Product::find($id);
+
+        $user = \Auth::user();
+        
+        $data=[
+           'user' => $user,
+           'categories' => $categories,
+           'statuses' => $statuses,
+           'product' => $product,
+           'categoryName' => $categoryName,
+           'statusName' => $statusName,
+        ];
+
+        return view('products.frontReviseProduct',$data);
+
+    }
+
 }
