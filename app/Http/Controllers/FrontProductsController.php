@@ -183,7 +183,7 @@ class FrontProductsController extends Controller
     }
 
     public function edit($id)
-    {
+    {   
         $this->middleware('guest')->except('edit');
 
         $categories = Category::orderBy('id')->get();
@@ -203,10 +203,74 @@ class FrontProductsController extends Controller
            'product' => $product,
            'categoryName' => $categoryName,
            'statusName' => $statusName,
+           
         ];
 
         return view('products.frontReviseProduct',$data);
 
     }
+   
 
+    public function update(CreateProductRequest $request)
+    {
+        try{
+
+            $product = new Product();
+
+            $product->title = $request->title;
+            $product->promotion = $request->promotion;
+            $product->overview = $request->overview;
+
+            // メイン画像を指定のパスに保存する
+            $mainImageName = time().'.'.$request->main_image->getClientOriginalExtension();
+            $targetPath = public_path('/productImage/');
+            $request->main_image->move($targetPath,$mainImageName);
+            $product->main_image = $mainImageName;
+
+            // サブ画像１が存在すれば、サブ画像１を指定のパスに保存する
+            if($request->sub_image1){
+                $subImage1Name = time().'.'.$request->sub_image1->getClientOriginalExtension();
+                $targetPath = public_path('/image/');
+                $request->sub_image1->move($targetPath,$subImage1Name);
+                $product->sub_image1 = $subImage1Name;
+            }
+
+            // サブ画像２が存在すれば、サブ画像２を指定のパスに保存する
+            if($request->sub_image2){
+                $subImage2Name = time().'.'.$request->sub_image2->getClientOriginalExtension();
+                $targetPath = public_path('/image/');
+                $request->sub_image2->move($targetPath,$subImage2Name);
+                $product->sub_image2 = $subImage2Name;
+            }
+
+            // サブ画像３が存在すれば、サブ画像３を指定のパスに保存する
+            if($request->sub_image3){
+                $subImage3Name = time().'.'.$request->sub_image3->getClientOriginalExtension();
+                $targetPath = public_path('/image/');
+                $request->sub_image3->move($targetPath,$subImage3Name);
+                $product->sub_image3 = $subImage3Name;
+            }
+
+            $product->price = $request->price;
+            $product->category_id = $request->category_id;
+            $product->status_id = $request->status_id;
+
+            $product->save();
+
+            // トランザクションの保存処理を実行
+            \DB::commit();
+
+            return redirect('products/')->with('flash_message', '出品が完了しました');
+
+        } catch (\Exception $e) {
+
+            // エラー発生時は、DBへの保存処理が無かったことにする（ロールバック）
+            \DB::rollBack();
+          
+            //フラッシュメッセージ表示
+            // session()->flash('flash_message', '投稿に失敗しました');
+            return redirect('/error')->with('flash_message', '投稿に失敗しました');
+            
+        }
+    }
 }
