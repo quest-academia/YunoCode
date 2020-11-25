@@ -25,3 +25,6 @@
     //新規登録画面の表示をする
     Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
     Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
+
+    //商品の修正、削除をする
+    Route::put('update', 'FrontProductsController@update')->name('update');

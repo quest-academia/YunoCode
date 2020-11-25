@@ -203,7 +203,6 @@ class FrontProductsController extends Controller
            'product' => $product,
            'categoryName' => $categoryName,
            'statusName' => $statusName,
-           
         ];
 
         return view('products.frontReviseProduct',$data);
