@@ -14,7 +14,7 @@
     Route::get('/', 'FrontTopPageController@index')->name('/');
 
     //商品関連のページを表示する
-    Route::resource('products', 'FrontProductsController', ['only' => ['index', 'show', 'create', 'store', 'edit']]);
+    Route::resource('products', 'FrontProductsController', ['only' => ['index', 'show', 'create', 'store', 'edit', 'update']]);
     Route::post('Search', 'FrontProductsController@search')->name('search');
     
     //ログイン画面の表示をする

@@ -6,7 +6,7 @@
 
         <h1 class="text-center blue-text mt-5">商品修正画面</h1>
 
-        {!! Form::open(['route'=>'search', 'enctype'=>'multipart/form-data']) !!}
+        {!! Form::open(['route'=>'products.store', 'enctype'=>'multipart/form-data']) !!}
 
             <div class="form-group mt-5">
 
@@ -111,10 +111,9 @@
                 <div class="form-group @if(!empty($errors->first('category_id'))) has-error @endif">
                     <h4 class="">・商品カテゴリー</h4>
                     <select type="text" class="" name="category_id">
-                        <option hidden>{{ $categoryName->category_name }}</option>
                         @foreach($categories as $key=>$category)
                             @if((!empty($request->category_id) && $request->category_id == $category->id) || old('category_id') == $category->id )
-                                <option value="{{ $category->id }}" selected>{{ $category->category_name }}</option>
+                                <option value="{{ $category->id }}" selected>{{ $categoryName->category_name }}</option>
                             @else
                                 <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                             @endif
@@ -140,7 +139,7 @@
                 
                 <div class="text-center">
                     <a class="btn btn-danger mt-3 w-25" href="">削除</a>
-                    <span style="margin-left:100px"><a class="btn btn-primary mt-3 w-25" href="">修正</a>
+                    <span style="margin-left:100px">{!! Form::submit('修正',['class'=> 'btn btn-primary mt-3 w-25']) !!}
                 </div>
 
             </div>
