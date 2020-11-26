@@ -14,7 +14,7 @@
     Route::get('/', 'FrontTopPageController@index')->name('/');
 
     //商品関連のページを表示する
-    Route::resource('products', 'FrontProductsController', ['only' => ['index', 'show', 'create', 'store', 'edit']]);
+    Route::resource('products', 'FrontProductsController', ['only' => ['index', 'show', 'create', 'store', 'edit', 'update']]);
     Route::post('Search', 'FrontProductsController@search')->name('search');
     
     //ログイン画面の表示をする
@@ -25,6 +25,3 @@
     //新規登録画面の表示をする
     Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
     Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
-
-    //商品の修正、削除をする
-    Route::put('update', 'FrontProductsController@update')->name('update');

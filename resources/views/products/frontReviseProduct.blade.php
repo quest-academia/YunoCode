@@ -6,7 +6,7 @@
 
         <h1 class="text-center blue-text mt-5">商品修正画面</h1>
 
-        {!! Form::open(['route'=>'update','enctype'=>'multipart/form-data']) !!}
+        {!! Form::open(['route'=>'products.store', 'enctype'=>'multipart/form-data']) !!}
 
             <div class="form-group mt-5">
 
@@ -111,10 +111,9 @@
                 <div class="form-group @if(!empty($errors->first('category_id'))) has-error @endif">
                     <h4 class="">・商品カテゴリー</h4>
                     <select type="text" class="" name="category_id">
-                        <option hidden>{{ $categoryName->category_name }}</option>
                         @foreach($categories as $key=>$category)
                             @if((!empty($request->category_id) && $request->category_id == $category->id) || old('category_id') == $category->id )
-                                <option value="{{ $category->id }}" selected>{{ $category->category_name }}</option>
+                                <option value="{{ $category->id }}" selected>{{ $categoryName->category_name }}</option>
                             @else
                                 <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                             @endif
