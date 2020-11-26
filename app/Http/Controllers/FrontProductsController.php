@@ -132,24 +132,24 @@ class FrontProductsController extends Controller
 
             // サブ画像１が存在すれば、サブ画像１を指定のパスに保存する
             if($request->sub_image1){
-                $subImage1Name = time().'.'.$request->sub_image1->getClientOriginalExtension();
-                $targetPath = public_path('/image/');
+                $subImage1Name = time().'-sub1.'.$request->sub_image1->getClientOriginalExtension();
+            	$targetPath = public_path('/productImage/');
                 $request->sub_image1->move($targetPath,$subImage1Name);
                 $product->sub_image1 = $subImage1Name;
             }
 
             // サブ画像２が存在すれば、サブ画像２を指定のパスに保存する
             if($request->sub_image2){
-                $subImage2Name = time().'.'.$request->sub_image2->getClientOriginalExtension();
-                $targetPath = public_path('/image/');
+                $subImage2Name = time().'-sub2.'.$request->sub_image2->getClientOriginalExtension();
+            	$targetPath = public_path('/productImage/');
                 $request->sub_image2->move($targetPath,$subImage2Name);
                 $product->sub_image2 = $subImage2Name;
             }
 
             // サブ画像３が存在すれば、サブ画像３を指定のパスに保存する
             if($request->sub_image3){
-                $subImage3Name = time().'.'.$request->sub_image3->getClientOriginalExtension();
-                $targetPath = public_path('/image/');
+                $subImage3Name = time().'-sub3.'.$request->sub_image3->getClientOriginalExtension();
+            	$targetPath = public_path('/productImage/');
                 $request->sub_image3->move($targetPath,$subImage3Name);
                 $product->sub_image3 = $subImage3Name;
             }
@@ -182,5 +182,31 @@ class FrontProductsController extends Controller
         return str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $str);
     }
 
-    
+    public function edit($id)
+    {
+        $this->middleware('guest')->except('edit');
+
+        $categories = Category::orderBy('id')->get();
+        $statuses = Status::orderBy('id')->get();
+
+        $categoryName = Product::find($id)->category;
+        $statusName = Product::find($id)->status;
+
+        $product = Product::find($id);
+
+        $user = \Auth::user();
+        
+        $data=[
+           'user' => $user,
+           'categories' => $categories,
+           'statuses' => $statuses,
+           'product' => $product,
+           'categoryName' => $categoryName,
+           'statusName' => $statusName,
+        ];
+
+        return view('products.frontReviseProduct',$data);
+
+    }
+
 }
